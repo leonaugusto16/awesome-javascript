@@ -2,7 +2,7 @@ class displayController{
     constructor(){
         //this.displayCalcEl = document.querySelector("#display");
         this.displayCalcEl = document.querySelector('.current > h1');
-        this.displayOperator = document.querySelector('.operator').innerHTML;
+        this.displayOperatorEl = document.querySelector('.operator');
     }
 
     get displayCalc() {
@@ -10,6 +10,13 @@ class displayController{
     }
     set displayCalc(value) {
         this.displayCalcEl.innerHTML = value;
+    }
+
+    get displayOperator() {
+        return this.displayOperatorEl.innerHTML;
+    }
+    set displayOperator(value) {
+        this.displayOperatorEl.innerHTML = value;
     }
 
 

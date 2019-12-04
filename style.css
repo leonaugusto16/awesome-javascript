@@ -24,17 +24,17 @@
 }
 
 @font-face {
-  font-family: 'Material Icons';
+  font-family: 'Times, Arial, sans-serif;';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100;
   src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v8/2fcrYFNaTjcS6g4U3t-Y5RV6cRhDpPC5P4GCEJpqGoc.woff) format('woff');
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", Arial, sans-serif;
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
@@ -56,7 +56,7 @@ html, body {
 
 body {
   margin: 0;
-  color: #333;
+  color: #fdfbfb;
     font-family: "Roboto", "Helvetica Neue", "Helvetica", Arial, sans-serif;
     font-size: 1em;
     -webkit-font-smoothing: antialiased;
@@ -109,15 +109,15 @@ p, h1, h2, h3, h4, h5, h6, i {
 }
 .calc .nav .close i {
   color: white;
-  font-size: 22px;
+  font-size: 16px;
   cursor: pointer;
 }
 .calc .nav .minify {
-  margin-left: 5px;
+  margin-left: 125px;
 }
 .calc .nav .minify i {
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
 }
 .calc .result {

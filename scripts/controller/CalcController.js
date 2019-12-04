@@ -1,7 +1,7 @@
 
 class CalcController {
     constructor() {
-        //this._calcTime = new timeController();
+        this._calcTime = new timeController();
         this._calcAudio = new audioController();
         this._calcCopyPaste = new copyPasteController();
         this._calcKeyboard = new keyboardController();
@@ -18,10 +18,10 @@ class CalcController {
     }
 
     initialize(){
-        // this._calcTime.setDisplayDateTime();
-        // setInterval(()=>{
-        //     this._calcTime.setDisplayDateTime();
-        // }, 1000);
+        this._calcTime.setDisplayDateTime();
+        setInterval(()=>{
+            this._calcTime.setDisplayDateTime();
+        }, 1000);
 
         this.setLastNumberToDisplay();
         this._calcCopyPaste.pasteFromClipboard(this);
@@ -90,9 +90,13 @@ class CalcController {
 
     }
 
-    calc(){
+    calc(operator){
         let last = '';
         this._lastOperator = this.getLastItem();
+
+        if(operator === "equals" || operator === "Enter" || operator === "="){
+            this._calcDisplay.displayOperator = '='
+        }
 
         if(this._operation.length < 3){
             let firstItem = this._operation[0];
@@ -128,7 +132,8 @@ class CalcController {
         this._operation.push(value);
         
         if(this._operation.length > 3){
-            this.calc();
+            this._calcDisplay.displayOperator = value;
+            this.calc(value);
         }
     }
     getLastOperation(){
@@ -142,6 +147,8 @@ class CalcController {
     addOperation(value){
         if(isNaN(this.getLastOperation())){
             if(this.isOperator(value)){
+                console.log('junda', value)
+
                 this.setLastOperation(value);
             }
             else {
@@ -153,14 +160,12 @@ class CalcController {
         else {
             if(this.isOperator(value)) {
                 console.log('jorge', value)
+                this._calcDisplay.displayOperator = value;
                 this.pushOperation(value)
             }
             else{
-                console.log('junda', value)
-
                 let newValue = this.getLastOperation().toString() + value.toString();
                 this.setLastOperation(newValue);
-
                 this.setLastNumberToDisplay();
             }
         }

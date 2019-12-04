@@ -3,8 +3,8 @@ class timeController {
     constructor(){
         this._locale = 'pt-BR';
         this._currentDate; 
-        this._dateEl = document.querySelector("#data");
-        this._timeEl = document.querySelector("#hora");
+        this._dateEl = document.querySelector(".material-icons");
+        this._timeEl = document.querySelector(".minify");
 
     }
 

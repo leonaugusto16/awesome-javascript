@@ -46,7 +46,7 @@ class buttonEventsController{
                 context.addOperation('%');
                 break;            
             case 'equals':
-                context.calc();
+                context.calc(value);
                 break;   
             case 'comma':
                 context.addDot();

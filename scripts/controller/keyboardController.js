@@ -18,7 +18,7 @@ class keyboardController{
                     break;            
                 case 'Enter':
                 case '=':
-                    context.calc();
+                    context.calc(e.key);
                     break;   
                 case '.':
                 case ',':
