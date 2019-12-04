@@ -59,6 +59,7 @@ class CalcController {
         if(!lastNumber){
             lastNumber = 0;
         }
+
         this._calcDisplay.displayCalc = lastNumber;
     }
 
@@ -74,17 +75,13 @@ class CalcController {
         this.setLastNumberToDisplay();
     }
 
-    setError(){
-        this._calcDisplay.displayCalc = "Error";
-    }
-
     getResult(){
         try{
             return eval(this._operation.join(""));
         }
         catch(e){
             setTimeout(()=>{
-                this.setError();
+                this._calcDisplay.setError();
             },1);
         }
 
@@ -147,8 +144,6 @@ class CalcController {
     addOperation(value){
         if(isNaN(this.getLastOperation())){
             if(this.isOperator(value)){
-                console.log('junda', value)
-
                 this.setLastOperation(value);
             }
             else {

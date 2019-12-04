@@ -1,15 +1,19 @@
 class displayController{
     constructor(){
-        //this.displayCalcEl = document.querySelector("#display");
         this.displayCalcEl = document.querySelector('.current > h1');
         this.displayOperatorEl = document.querySelector('.operator');
+        this.limitDisplay = 11;
     }
 
     get displayCalc() {
         return this.displayCalcEl.innerHTML; 
     }
     set displayCalc(value) {
-        this.displayCalcEl.innerHTML = value;
+        if(value.toString().length > this.limitDisplay){
+            this.setError();
+        } else{
+            this.displayCalcEl.innerHTML = value;
+        }
     }
 
     get displayOperator() {
@@ -17,6 +21,10 @@ class displayController{
     }
     set displayOperator(value) {
         this.displayOperatorEl.innerHTML = value;
+    }
+
+    setError(){
+        this.displayCalcEl.innerHTML = "Error";
     }
 
 
